@@ -1,8 +1,13 @@
-FROM meghraj.jfrog.io/app-docker/myalpine:latest
+ARG DOCKER_REGISTRY
+ARG DOCKERREPO
+
+FROM $DOCKER_REGISTRY/$DOCKERREPO/alpine
+
+RUN apk add --no-cache wget gcc musl-dev # buildkit
 
 WORKDIR /app
 
-RUN wget https://raw.githubusercontent.com/meghrajp/container-exercises/main/resources/helloworld.c
+COPY resources/helloworld.c .
 
 RUN gcc -o hello helloworld.c
 
