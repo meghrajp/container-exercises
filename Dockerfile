@@ -1,8 +1,8 @@
-FROM mjmckay.jfrog.io/app-docker/myalpine:latest
+FROM meghraj.jfrog.io/app-docker/myalpine:latest
 
 WORKDIR /app
 
-RUN wget https://raw.githubusercontent.com/mjmckay/legendary-giggle/main/helloworld.c
+RUN wget https://raw.githubusercontent.com/meghrajp/container-exercises/main/resources/helloworld.c
 
 RUN gcc -o hello helloworld.c
 
